@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Stream</title>
+  </head>
+  <body>
+    <h2>Live Stream 1</h2>
+    <video id="video" height="480" width="640" controls></video>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+      var video = document.getElementById("video").play();
+      var videoSrc = "/hls/test1.m3u8";
+
+      if (Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource(videoSrc);
+        hls.attachMedia(video);
+      }
+      else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = videoSrc;
+      }
+    </script>
+
+    <h2>Live Stream 2</h2>
+    <video id="video2" height="480" width="640" controls></video>
+    <script>
+      var video2 = document.getElementById("video2");
+      var videoSrc2 = "/hls/test2.m3u8";
+
+      if (Hls.isSupported()) {
+        var hls2 = new Hls();
+        hls2.loadSource(videoSrc2);
+        hls2.attachMedia(video2);
+        hls2.play()
+      }
+      else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video2.src = videoSrc2;
+      }
+    </script>
+
+    <h2>Live Stream 3</h2>
+    <video id="video3" height="480" width="640" controls></video>
+    <script>
+      var video3 = document.getElementById("video3").play();
+      var videoSrc3 = "/hls/test3.m3u8";
+
+      if (Hls.isSupported()) {
+        var hls3 = new Hls();
+        hls3.loadSource(videoSrc3);
+        hls3.attachMedia(video3);
+      }
+      else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video3.src = videoSrc3;
+      }
+    </script>
+  </body>
+</html>

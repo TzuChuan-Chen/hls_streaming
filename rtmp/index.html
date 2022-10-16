@@ -1,0 +1,65 @@
+<!DOCTYPE html>  
+<html lang="en">  
+  <head>  
+      <title>demo</title>  
+      <link href="https://vjs.zencdn.net/7.0.3/video-js.css" rel="stylesheet">
+
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        .column {
+          float: left;
+
+          padding: 5px;
+        }
+
+        /* Clearfix (clear floats) */
+        .row::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+      </style>
+  </head>
+ 
+  <body>
+      <div class="row">
+        <div class="column">
+          <h1>Stream 1</h1>
+          <!-- autoplay + muted  -->
+          <video id="myVideo1" class="video-js vjs-default-skin vjs-big-play-centered" playsinline muted controls autoplay preload="auto" width="480" height="320" data-setup='{}'>      
+              <source id="source1" src="http://192.168.11.151:5050/hls/test1.m3u8"  type="application/x-mpegURL">
+          </video> 
+        </div>
+
+        <div class="column">
+          <h1>Stream 2</h1>
+          <video id="myVideo2" class="video-js vjs-default-skin vjs-big-play-centered" playsinline muted controls autoplay  preload="auto" width="480" height="320" data-setup='{}'>      
+              <source id="source2" src="http://192.168.11.151:5050/hls/test2.m3u8"  type="application/x-mpegURL">    
+          </video>  
+        </div>
+
+        <div class="column">
+          <h1>Stream 3</h1>
+          <video id="myVideo3" class="video-js vjs-default-skin vjs-big-play-centered" playsinline muted controls autoplay  preload="auto" width="480" height="320" data-setup='{}'>      
+              <source id="source3" src="http://192.168.11.151:5050/hls/test3.m3u8"  type="application/x-mpegURL">    
+          </video>  
+        </div>
+      </div>
+
+      <script src="https://vjs.zencdn.net/7.0.3/video.js"></script>
+      <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+      <script>
+      var player1 = videojs('source1');
+      var player2 = videojs('source2');
+      var player3 = videojs('source3');
+      player1.play();
+      player2.play();
+      player3.play();
+    </script>
+  </body>  
+
+</html>
+
